@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Clicker Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      margin-top: 50px;
+    }
+    #cookieButton {
+      font-size: 40px;
+      padding: 20px 40px;
+      cursor: pointer;
+    }
+    #count {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+    #message {
+      font-size: 20px;
+      margin-top: 15px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cookie Clicker Tracker</h1>
+  <p>Click the cookie and see how high you can go!</p>
+
+  <button id="cookieButton">🍪</button>
+
+  <div id="count">Cookies clicked: 0</div>
+  <div id="message">Start clicking to earn your first cookie badge!</div>
+
+  <script>
+    // Grab DOM elements
+    const cookieButton = document.getElementById("cookieButton");
+    const countDiv = document.getElementById("count");
+    const messageDiv = document.getElementById("message");
+
+    // Track number of clicks
+    let clickCount = 0;
+
+    // Handle button clicks
+    cookieButton.addEventListener("click", function () {
+      clickCount = clickCount + 1;
+      countDiv.textContent = "Cookies clicked: " + clickCount;
+
+      // Milestone messages
+      if (clickCount >= 100) {
+        messageDiv.textContent = "Cookie legend! 100+ clicks!";
+        document.body.style.backgroundColor = "#ffe4b5";
+      } else if (clickCount >= 50) {
+        messageDiv.textContent = "You are on a cookie roll! 50+ clicks!";
+        document.body.style.backgroundColor = "#fff0d5";
+      } else if (clickCount >= 25) {
+        messageDiv.textContent = "Nice work, 25 cookies collected!";
+        document.body.style.backgroundColor = "#fdfaf2";
+      } else if (clickCount >= 10) {
+        messageDiv.textContent = "First milestone reached: 10 cookies!";
+      } else {
+        messageDiv.textContent = "Keep going, more cookies ahead!";
+      }
+    });
+  </script>
+</body>
+</html>
